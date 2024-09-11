@@ -1,8 +1,6 @@
-#!/bin/bash
-
-# Install required packages
+# Install required pakcages
 echo 'Installing required apt packages...'
-sudo apt install -y curl git wget vim npm
+sudo apt install -y curl git wget vim
 
 # Switch to home dir and copy .vimrc
 echo 'Downloading vimrc...'
@@ -19,10 +17,12 @@ echo 'Setting up vundle...'
 cd $HOME
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+
 # Install vundle plugins from vimrc
 echo 'Installing vim plugins...'
 cd $HOME
 vim +PluginInstall +qall
+
 
 # Install colorschemes (base-16)
 echo 'Installing vim colorschemes...'
@@ -32,7 +32,9 @@ mkdir -p $HOME/.vim/colors
 mv $HOME/base16-vim/colors/* $HOME/.vim/colors/
 rm -rf $HOME/base16-vim
 
+
 # Install linting modules
 echo 'Installing linting helper packages...'
 cd $HOME
 npm install -g eslint_d eslint babel-eslint eslint-plugin-react
+
